@@ -1,0 +1,12 @@
+[Unit]
+Description=Bytebeam App service
+After=network.target uplink.service
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/share/bytebeam/app.py
+KillMode=process
+Restart=on-failure
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
