@@ -3,7 +3,7 @@ Description=Bytebeam Uplink service
 After=network.target auditd.service
 
 [Service]
-ExecStart=/usr/share/bytebeam/uplink -vvv -c /etc/bytebeam/config.toml -a /usr/share/bytebeam/device_config.json
+ExecStart=/usr/share/bytebeam/uplink -vvv  -a /usr/share/bytebeam/device_config.json
 KillMode=process
 Restart=on-failure
 Type=simple
