@@ -46,10 +46,10 @@ if [ ! -d /tmp/bytebeam_raspberry-main ]; then
 fi
 
 #copy config.toml to DEFAULT_CONFIG_DIR
-#cp /tmp/bytebeam_raspberry-main/config.toml /etc/bytebeam/config.toml
+cp /tmp/bytebeam_raspberry-main/config.toml /etc/bytebeam/config.toml
 
 #copy python application to DEFAULT_USR_DIR
-#cp /tmp/bytebeam_raspberry-main/app.py /usr/share/bytebeam/app.py
+cp /tmp/bytebeam_raspberry-main/app.py /usr/share/bytebeam/app.py
 
 #now we need to configure config.ini and enter stream here
 touch /tmp/configfile.ini
@@ -60,16 +60,16 @@ echo "stream_name = ${stream_in}" >> /tmp/configfile.ini
 cat /tmp/configfile.ini
 
 #copy config.ini to DEFAULT_USR_DIR
-cp /tmp/config.ini /usr/share/bytebeam/configfile.ini
+cp /tmp/configfile.ini /usr/share/bytebeam/configfile.ini
 
 #enable and start uplink service
-#sudo install -m 644 /tmp/bytebeam_raspberry-main/uplink.service /etc/systemd/system
-#sudo systemctl enable uplink.service
+sudo install -m 644 /tmp/bytebeam_raspberry-main/uplink.service /etc/systemd/system
+sudo systemctl enable uplink.service
 
 #enable and start bytebeam app service
 
-#sudo install -m 644 /tmp/bytebeam_raspberry-main/bytebeam_app.service /etc/systemd/system
-#sudo systemctl enable bytebeam_app.service
+sudo install -m 644 /tmp/bytebeam_raspberry-main/bytebeam_app.service /etc/systemd/system
+sudo systemctl enable bytebeam_app.service
 
 #create and start cron job to reload and restart uplink systemctl service
 
